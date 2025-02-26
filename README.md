@@ -4,6 +4,8 @@
 
 AIR is a graphical interface for e-readers that heavily relies on AwesomeWM. It's tested on the Kobo Clara HD using PostmarketOS, but perhaps it can be used elsewhere. It is a work in progress.
 
+These are minor adaptations of AIR to make it work well on the Tolino Shine 2HD reader using pmOS.
+
 AIR was created because most Linux graphical interfaces don't work very well with e-ink tablet out of the box. They often require keyboard or mouse to configure things. Sometimes, unique features such as cold & warm brightness cannot be easily controls. Lastly, things like proper suspend and resume can require some [hacks](suspend.sh). AIR aims to make these things Just Work ™️. 
 
 ## Features
@@ -26,7 +28,7 @@ You can use any Linux application with it, for example:
 
 AIR isn't nicely packed as it's actually just a collection of different tools, together with an AwesomeWM configuration. Setting up takes a couple of steps:
 
-0. `cd ~/.config && git clone https://github.com/bjesus/air.git awesome`
+0. `cd ~/.config && git clone https://github.com/ozzelotcz/air-tolinoshine2hd.git awesome`
 
 1. Install all needed packages: `sudo apk add awesome util-linux-misc svkbd lisgd network-manager-applet pm-utils brightnessctl upower adwaita-icon-theme font-inter xrandr`
 
