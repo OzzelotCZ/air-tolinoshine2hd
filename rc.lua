@@ -40,8 +40,8 @@ end)
 
 backlightslider = wibox.widget({
   minimum = 0,
-  maximum = 255,
-  value = 150,
+  maximum = 3124,
+  value = 1500,
   handle_color = beautiful.bg_normal,
   handle_shape = gears.shape.circle,
   handle_border_color = beautiful.border_color,
