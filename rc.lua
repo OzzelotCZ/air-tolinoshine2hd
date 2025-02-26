@@ -38,7 +38,7 @@ end)
 
 -- settings popup
 
-coldslider = wibox.widget({
+backlightslider = wibox.widget({
   minimum = 0,
   maximum = 255,
   value = 150,
@@ -54,30 +54,9 @@ coldslider = wibox.widget({
   widget = wibox.widget.slider,
 })
 
-coldslider:connect_signal("property::value", function(maybe, new_value)
+backlightslider:connect_signal("property::value", function(maybe, new_value)
   naughty.notify({ title = maybe.value, text = "changed" })
-  awful.spawn("brightnessctl -d 'backlight_cold' s " .. maybe.value)
-end)
-
-warmslider = wibox.widget({
-  minimum = 0,
-  maximum = 255,
-  value = 150,
-  handle_color = beautiful.bg_normal,
-  handle_shape = gears.shape.circle,
-  handle_border_color = beautiful.border_color,
-  handle_border_width = 1,
-  bar_shape = gears.shape.rounded_rect,
-  bar_height = 3,
-  bar_color = beautiful.border_color,
-  forced_height = 50,
-  forced_width = 200,
-  widget = wibox.widget.slider,
-})
-
-warmslider:connect_signal("property::value", function(maybe, new_value)
-  naughty.notify({ title = maybe.value, text = "changed" })
-  awful.spawn("brightnessctl -d 'backlight_warm' s " .. maybe.value)
+  awful.spawn("brightnessctl -d 'backlight' s " .. maybe.value)
 end)
 
 wifitoggle = wibox.widget({
@@ -126,10 +105,8 @@ pop = awful.popup({
       },
 
       {
-        { text = "Cold", widget = wibox.widget.textbox },
-        coldslider,
-        { text = "Warm", widget = wibox.widget.textbox },
-        warmslider,
+        { text = "Backlight", widget = wibox.widget.textbox },
+        backlightslider,
         { text = "WiFi", widget = wibox.widget.textbox },
         {
           wifitoggle,
